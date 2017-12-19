@@ -35,7 +35,7 @@ def InitialDrawing(F,C):
     pygame.draw.circle(screen,YELLOW,[C[0],C[1]],3,0) #Drawing Origin
 
 def PointDrawing(P):
-    pygame.draw.circle(screen,GREEN,[P[0],P[1]],3,0) #Drawing Initial Point
+    pygame.draw.circle(screen,BLUE,[P[0],P[1]],3,0) #Drawing Initial Point
 
 #2D point to 3D point
 def PointWithDepth(x,y,z,F,delta):

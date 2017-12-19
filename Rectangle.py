@@ -28,7 +28,7 @@ def RectangleSize(P1,P2):
 def Rectangle(P1,Size,delta_rect,z,filled):
     l=Size[0]-z*delta_rect[0] #new rectangle length
     w=Size[1]-z*delta_rect[1] #new rectangle width
-    if filled:
+    if filled==1:
         pygame.draw.rect(screen,GREEN,(P1[0],P1[1],l,w)) #(x1,y1,length,width)
     else:
         pygame.draw.rect(screen,GREEN,(P1[0],P1[1],l,w),1) #(x1,y1,length,width)
