@@ -25,6 +25,8 @@ def Cube(P_1,C,F,zmax,z,l,filled,cube_init): #[Point,Origin,Focus,zmax,z,side_le
         #3D Point coords
         if cube_init==1:
             P1=PointfromOrigin(P_1,C)
+        else:
+            P1=P_1
 
         #Cube corners
         Corners=CubeCorners(P1,l)
