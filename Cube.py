@@ -20,10 +20,11 @@ pygame.init() #obligatory
 screen = pygame.display.set_mode((1000,700))
 pygame.display.set_caption("Cube")
 
-def Cube(P_1,C,F,zmax,z,l,filled): #[Point,Origin,Focus,zmax,z,side_length_cube]
+def Cube(P_1,C,F,zmax,z,l,filled,cube_init): #[Point,Origin,Focus,zmax,z,side_length_cube]
 
         #3D Point coords
-        P1=PointfromOrigin(P_1,C)
+        if cube_init==1:
+            P1=PointfromOrigin(P_1,C)
 
         #Cube corners
         Corners=CubeCorners(P1,l)
@@ -102,7 +103,10 @@ if __name__=='__main__': #Main function
     #Filled
     filled=0
 
-    Cube(P_1,C,F,zmax,z,l,filled)
+    #Initial cube
+    cube_init=1
+
+    Cube(P_1,C,F,zmax,z,l,filled,cube_init)
     
     while True:
         for event in pygame.event.get():
