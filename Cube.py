@@ -21,7 +21,7 @@ screen = pygame.display.set_mode((1000,700))
 screen.fill(SKY_BLUE)
 pygame.display.set_caption("Cube")
 
-def Cube(P_1,C,F,zmax,z,l,filled,cube_init,cube_final,cube_pos,Color): #[Point,Origin,Focus,zmax,z,side_length_cube]
+def Cube(P_1,C,F,zmax,z,l,filled,cube_init,cube_init_pos,cube_final_pos,cube_pos,Color): #[Point,Origin,Focus,zmax,z,side_length_cube]
 
         #3D Point coords
         if cube_init==1:
@@ -51,7 +51,7 @@ def Cube(P_1,C,F,zmax,z,l,filled,cube_init,cube_final,cube_pos,Color): #[Point,O
         new_l=New_Face[0] #new length size
 
         New_Corners=CubeCorners(New_2D_P,new_l) #new points P1,P2,P3,P4
-        FillingFaces(Corners,New_Corners,Color,cube_init,cube_final,cube_pos)
+        FillingFaces(Corners,New_Corners,Color,cube_init,cube_init_pos,cube_final_pos,cube_pos)
         All_Corners=[Corners,New_Corners]
         return All_Corners
 
@@ -62,17 +62,17 @@ def CubeCorners(P1,l):
     corners=[P1,P2,P3,P4] 
     return corners
 
-def FillingFaces(Corners,New_Corners,Color,cube_init,cube_final,cube_pos):
+def FillingFaces(Corners,New_Corners,Color,cube_init,cube_init_pos,cube_final_pos,cube_pos):
     #Thickness
     th=5
     #Back Face
     BKF = pygame.draw.polygon(screen, BROWN, [New_Corners[0],New_Corners[1],New_Corners[3],New_Corners[2]])    
     #Lower Face
     UPF = pygame.draw.polygon(screen, WHITE, [New_Corners[2],New_Corners[3],Corners[3],Corners[2]])    
-    if cube_pos==cube_init:
+    if cube_pos==cube_init_pos:
         #Left Side Face
         LFT = pygame.draw.polygon(screen, BROWN, [New_Corners[0],New_Corners[2],Corners[2],Corners[0]])
-    if cube_pos==cube_final:    
+    if cube_pos==cube_final_pos:    
         #Right Side Face
         RGT = pygame.draw.polygon(screen, BROWN, [New_Corners[1],New_Corners[3],Corners[3],Corners[1]])
     #Upper Face
@@ -107,19 +107,22 @@ if __name__=='__main__': #Main function
     #Filled
     filled=0
 
-    #Initial cube
-    cube_init=1
+    #Initial cube 
+    cube_init=1 #1 TRUE, 0 FALSE
 
-    #Final cube
-    cube_final=1
+    #Initial cube position
+    cube_init_pos=0 #Starting point
+
+    #Final cube position
+    cube_final_pos=0 #Final point
 
     #Cube position
-    cube_pos=1
+    cube_pos=0 #Curren position
 
     #Color Options
     Color=1 #0 White / 1 Black
 
-    Cube(P_1,C,F,zmax,z,l,filled,cube_init,cube_final,cube_pos,Color)
+    Cube(P_1,C,F,zmax,z,l,filled,cube_init,cube_init_pos,cube_final_pos,cube_pos,Color) #[Point,Origin,Focus,zmax,z,side_length_cube,filled=TRUE or FALSE,Initial cube=TRUE or FALSE,starting point,final point,current position,Color=TRUE or FALSE]
     
     while True:
         for event in pygame.event.get():
