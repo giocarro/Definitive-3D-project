@@ -85,7 +85,7 @@ def FillingFaces(Corners,New_Corners):
 
 if __name__=='__main__': #Main function
 
-    zmax=3 #Max Depth
+    zmax=4 #Max Depth
 
     #Focus creation
     F=[500,100,zmax]
@@ -97,10 +97,11 @@ if __name__=='__main__': #Main function
     z=0
 
     #Side Length
-    l=300
+    l=200
 
     #Initial Point
-    P_1=[-l/2,l/2]
+    #P_1=[-l/2,l/2]
+    P_1=[300,50]
 
     #Filled
     filled=0
