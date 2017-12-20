@@ -18,9 +18,10 @@ BROWN = (107,92,34)
 
 pygame.init() #obligatory
 screen = pygame.display.set_mode((1000,700))
+screen.fill(SKY_BLUE)
 pygame.display.set_caption("Cube")
 
-def Cube(P_1,C,F,zmax,z,l,filled,cube_init): #[Point,Origin,Focus,zmax,z,side_length_cube]
+def Cube(P_1,C,F,zmax,z,l,filled,cube_init,Color): #[Point,Origin,Focus,zmax,z,side_length_cube]
 
         #3D Point coords
         if cube_init==1:
@@ -50,7 +51,7 @@ def Cube(P_1,C,F,zmax,z,l,filled,cube_init): #[Point,Origin,Focus,zmax,z,side_le
         new_l=New_Face[0] #new length size
 
         New_Corners=CubeCorners(New_2D_P,new_l) #new points P1,P2,P3,P4
-        FillingFaces(Corners,New_Corners)
+        FillingFaces(Corners,New_Corners,Color)
         All_Corners=[Corners,New_Corners]
         return All_Corners
 
@@ -61,7 +62,7 @@ def CubeCorners(P1,l):
     corners=[P1,P2,P3,P4] 
     return corners
 
-def FillingFaces(Corners,New_Corners):
+def FillingFaces(Corners,New_Corners,Color):
     #Thickness
     th=5
     #Back Face
@@ -78,7 +79,10 @@ def FillingFaces(Corners,New_Corners):
     RGT = pygame.draw.polygon(screen, BLUE, [New_Corners[1],New_Corners[3],Corners[3],Corners[1]])
     #Upper Face
     pygame.draw.polygon(screen, BLACK, [New_Corners[0],New_Corners[1],Corners[1],Corners[0]],th)    
-    UPF = pygame.draw.polygon(screen, WHITE, [New_Corners[0],New_Corners[1],Corners[1],Corners[0]])
+    if Color==0:
+        UPF = pygame.draw.polygon(screen, WHITE, [New_Corners[0],New_Corners[1],Corners[1],Corners[0]])
+    else:
+        UPF = pygame.draw.polygon(screen, BLACK, [New_Corners[0],New_Corners[1],Corners[1],Corners[0]])            
     #Front Face
     pygame.draw.polygon(screen, BLACK, [Corners[0],Corners[1],Corners[3],Corners[2]],th)
     FRF = pygame.draw.polygon(screen, BROWN, [Corners[0],Corners[1],Corners[3],Corners[2]])
@@ -101,7 +105,7 @@ if __name__=='__main__': #Main function
 
     #Initial Point
     #P_1=[-l/2,l/2]
-    P_1=[300,50]
+    P_1=[-100,50]
 
     #Filled
     filled=0
@@ -109,7 +113,10 @@ if __name__=='__main__': #Main function
     #Initial cube
     cube_init=1
 
-    Cube(P_1,C,F,zmax,z,l,filled,cube_init)
+    #Color Options
+    Color=1 #0 White / 1 Black
+
+    Cube(P_1,C,F,zmax,z,l,filled,cube_init,Color)
     
     while True:
         for event in pygame.event.get():
