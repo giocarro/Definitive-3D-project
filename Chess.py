@@ -2,7 +2,7 @@ import pygame, sys, time
 from pygame.locals import *
 from Points import *
 from Rectangle import *
-#from Cube import *
+from Cube import *
 
 GREEN = (30,250,0)
 BLACK = (0,0,0)
