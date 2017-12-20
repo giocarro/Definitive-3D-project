@@ -39,16 +39,16 @@ def PointDrawing(P):
 
 #2D point to 3D point
 def PointWithDepth(x,y,z,F,delta):
-    if x<F[0] and y>F[1]:
+    if x<=F[0] and y>=F[1]:
         x_n=x+z*delta[0]
         y_n=y-z*delta[1]
-    elif x<F[0] and y<F[1]:
+    elif x<=F[0] and y<=F[1]:
         x_n=x+z*delta[0]
         y_n=y+z*delta[1]
-    elif x>F[0] and y>F[1]:
+    elif x>=F[0] and y>=F[1]:
         x_n=x-z*delta[0]
         y_n=y-z*delta[1]
-    elif x>F[0] and y<F[1]:
+    elif x>=F[0] and y<=F[1]:
         x_n=x-z*delta[0]
         y_n=y+z*delta[1]
 
