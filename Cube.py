@@ -64,7 +64,9 @@ def Cube(P_1,C,F,zmax,z,l,filled): #[Point,Origin,Focus,zmax,z,side_length_cube]
         PointDrawing(New_Corners[3])
 
         FillingFaces(Corners,New_Corners)
-    
+
+        All_Corners=[Corners,New_Corners]
+        return All_Corners
         #print(New_P)
 
 def CubeCorners(P1,l):
