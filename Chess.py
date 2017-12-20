@@ -17,6 +17,7 @@ BROWN = (107,92,34)
 
 pygame.init() #obligatory
 screen = pygame.display.set_mode((1000,700))
+screen.fill(SKY_BLUE)
 pygame.display.set_caption("Chess")
 
 if __name__=='__main__': #Main function
@@ -44,6 +45,7 @@ if __name__=='__main__': #Main function
     cube_pos=cube_init_pos
     cubes_row=8
     cube_final_pos=cube_init_pos + cubes_row
+    Color=0
 
     while True:
         for event in pygame.event.get():
@@ -52,7 +54,11 @@ if __name__=='__main__': #Main function
                 sys.exit()
         if z>0:
             while cube_pos<cube_final_pos:
-                All_Corners=Cube(P_1,C,F,zmax,z,l,filled,cube_init)
+                All_Corners=Cube(P_1,C,F,zmax,z,l,filled,cube_init,Color)
+                if Color==0:
+                    Color=1
+                else:
+                    Color=0
                 print 'All Corners=',All_Corners
                 if cube_pos==cube_init_pos:
                     P1=All_Corners[0][0]
@@ -62,6 +68,10 @@ if __name__=='__main__': #Main function
                 P_1=All_Corners[0][1]
                 cube_pos=cube_pos+1
 
+            if Color==0:
+                Color=1
+            else:
+                Color=0
             z=z-1
             P_1=P1
             cube_pos=cube_init_pos

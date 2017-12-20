@@ -66,17 +66,17 @@ def FillingFaces(Corners,New_Corners,Color):
     #Thickness
     th=5
     #Back Face
-    pygame.draw.polygon(screen, BLACK, [New_Corners[0],New_Corners[1],New_Corners[3],New_Corners[2]],th)
+    #pygame.draw.polygon(screen, BLACK, [New_Corners[0],New_Corners[1],New_Corners[3],New_Corners[2]],th)
     BKF = pygame.draw.polygon(screen, BROWN, [New_Corners[0],New_Corners[1],New_Corners[3],New_Corners[2]])    
     #Lower Face
-    pygame.draw.polygon(screen, BLACK, [New_Corners[2],New_Corners[3],Corners[3],Corners[2]],th)
+    #pygame.draw.polygon(screen, BLACK, [New_Corners[2],New_Corners[3],Corners[3],Corners[2]],th)
     UPF = pygame.draw.polygon(screen, WHITE, [New_Corners[2],New_Corners[3],Corners[3],Corners[2]])    
     #Left Side Face
-    pygame.draw.polygon(screen, BLACK, [New_Corners[0],New_Corners[2],Corners[2],Corners[0]],th)
-    LFT = pygame.draw.polygon(screen, BLUE, [New_Corners[0],New_Corners[2],Corners[2],Corners[0]])
+    #pygame.draw.polygon(screen, BLACK, [New_Corners[0],New_Corners[2],Corners[2],Corners[0]],th)
+    LFT = pygame.draw.polygon(screen, BROWN, [New_Corners[0],New_Corners[2],Corners[2],Corners[0]])
     #Right Side Face
-    pygame.draw.polygon(screen, BLACK, [New_Corners[1],New_Corners[3],Corners[3],Corners[1]],th)
-    RGT = pygame.draw.polygon(screen, BLUE, [New_Corners[1],New_Corners[3],Corners[3],Corners[1]])
+    #pygame.draw.polygon(screen, BLACK, [New_Corners[1],New_Corners[3],Corners[3],Corners[1]],th)
+    RGT = pygame.draw.polygon(screen, BROWN, [New_Corners[1],New_Corners[3],Corners[3],Corners[1]])
     #Upper Face
     pygame.draw.polygon(screen, BLACK, [New_Corners[0],New_Corners[1],Corners[1],Corners[0]],th)    
     if Color==0:
@@ -84,7 +84,7 @@ def FillingFaces(Corners,New_Corners,Color):
     else:
         UPF = pygame.draw.polygon(screen, BLACK, [New_Corners[0],New_Corners[1],Corners[1],Corners[0]])            
     #Front Face
-    pygame.draw.polygon(screen, BLACK, [Corners[0],Corners[1],Corners[3],Corners[2]],th)
+    #pygame.draw.polygon(screen, BLACK, [Corners[0],Corners[1],Corners[3],Corners[2]],th)
     FRF = pygame.draw.polygon(screen, BROWN, [Corners[0],Corners[1],Corners[3],Corners[2]])
 
 if __name__=='__main__': #Main function
