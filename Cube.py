@@ -47,14 +47,17 @@ def Cube(P_1,C,F,zmax,z,l,filled): #[Point,Origin,Focus,zmax,z,side_length_cube]
 
         z=z+1
 
-        New_P=PointWithDepth(P1[0],P1[1],z,F,delta)
+        New_3D_P=PointWithDepth(P1[0],P1[1],z,F,delta)
 
-        New_Face=Rectangle(New_P,Size,delta_cube,z,filled) #[Point,[length,width],[delta_x,delta_y,z=depth]]
+        New_2D_P=[New_3D_P[0],New_3D_P[1]]
+
+        New_Face=Rectangle(New_2D_P,Size,delta_cube,z,filled) #[Point,[length,width],[delta_x,delta_y,z=depth]]
 
         new_l=New_Face[0] #new length size
 
-        New_Corners=CubeCorners(New_P,new_l) #new points P1,P2,P3,P4
-        print 'New corners=',New_Corners
+        print 'New_3D_P=',New_3D_P,'New_2D_P=',New_2D_P
+        New_Corners=CubeCorners(New_2D_P,new_l) #new points P1,P2,P3,P4
+        print 'Corners=',Corners,'  \nNew corners=',New_Corners
         PointDrawing(New_Corners[0])
         PointDrawing(New_Corners[1])
         PointDrawing(New_Corners[2])
@@ -62,7 +65,7 @@ def Cube(P_1,C,F,zmax,z,l,filled): #[Point,Origin,Focus,zmax,z,side_length_cube]
 
         FillingFaces(Corners,New_Corners)
     
-        print(New_P)
+        #print(New_P)
 
 def CubeCorners(P1,l):
     P2=[P1[0]+l,P1[1]]
@@ -72,12 +75,12 @@ def CubeCorners(P1,l):
     return corners
 
 def FillingFaces(Corners,New_Corners):
-    #Back Face
-    BKF = pygame.draw.polygon(screen, WHITE, [[New_Corners[0][0],New_Corners[0][1]],[New_Corners[2][0],New_Corners[2][1]],[New_Corners[1][0],New_Corners[1][1]],[New_Corners[3][0],New_Corners[3][1]]],0)
+    #Back Face    
+    BKF = pygame.draw.polygon(screen, BROWN, [New_Corners[0],New_Corners[1],New_Corners[3],New_Corners[2]])
+    #Upper Face
+    UPF = pygame.draw.polygon(screen, WHITE, [Corners[0],Corners[1],Corners[3],Corners[2]])
     #Front Face
     #FRF = pygame.draw.polygon(screen, WHITE, [[v1_list[0][0],v1_list[0][1]],[v1_list[2][0],v1_list[2][1]],[v1_list[1][0],v1_list[1][1]],[v1_list[3][0],v1_list[3][1]]],0)
-    #Upper Face
-    #UPF = pygame.draw.polygon(screen, BLUE, [[v1_list[0][0],v1_list[0][1]],[v2_list[0][0],v2_list[0][1]],[v2_list[3][0],v2_list[3][1]],[v1_list[3][0],v1_list[3][1]]],0)
     #Lower Face
     #LOF = pygame.draw.polygon(screen, GREEN, [[v1_list[2][0],v1_list[2][1]],[v2_list[2][0],v2_list[2][1]],[v2_list[1][0],v2_list[1][1]],[v1_list[1][0],v1_list[1][1]]],0)
     #Right Side Face
