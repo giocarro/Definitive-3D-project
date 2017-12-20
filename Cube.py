@@ -27,10 +27,6 @@ def Cube(P_1,C,F,zmax,z,l,filled): #[Point,Origin,Focus,zmax,z,side_length_cube]
 
         #Cube corners
         Corners=CubeCorners(P1,l)
-        PointDrawing(Corners[0])
-        PointDrawing(Corners[1])
-        PointDrawing(Corners[2])
-        PointDrawing(Corners[3])
     
         #Initial Point-Focus ratio
         delta=Delta(F,P1,zmax)
@@ -43,31 +39,17 @@ def Cube(P_1,C,F,zmax,z,l,filled): #[Point,Origin,Focus,zmax,z,side_length_cube]
 
         Rectangle(P1,Size,delta_cube,z,filled)
 
-        print(P1)
-
         z=z+1
 
         New_3D_P=PointWithDepth(P1[0],P1[1],z,F,delta)
-
         New_2D_P=[New_3D_P[0],New_3D_P[1]]
-
         New_Face=Rectangle(New_2D_P,Size,delta_cube,z,filled) #[Point,[length,width],[delta_x,delta_y,z=depth]]
-
         new_l=New_Face[0] #new length size
 
-        print 'New_3D_P=',New_3D_P,'New_2D_P=',New_2D_P
         New_Corners=CubeCorners(New_2D_P,new_l) #new points P1,P2,P3,P4
-        print 'Corners=',Corners,'  \nNew corners=',New_Corners
-        PointDrawing(New_Corners[0])
-        PointDrawing(New_Corners[1])
-        PointDrawing(New_Corners[2])
-        PointDrawing(New_Corners[3])
-
         FillingFaces(Corners,New_Corners)
-
         All_Corners=[Corners,New_Corners]
         return All_Corners
-        #print(New_P)
 
 def CubeCorners(P1,l):
     P2=[P1[0]+l,P1[1]]
