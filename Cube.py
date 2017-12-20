@@ -77,16 +77,16 @@ def CubeCorners(P1,l):
 def FillingFaces(Corners,New_Corners):
     #Back Face    
     BKF = pygame.draw.polygon(screen, BROWN, [New_Corners[0],New_Corners[1],New_Corners[3],New_Corners[2]])
-    #Upper Face
-    UPF = pygame.draw.polygon(screen, WHITE, [Corners[0],Corners[1],Corners[3],Corners[2]])
-    #Front Face
-    #FRF = pygame.draw.polygon(screen, WHITE, [[v1_list[0][0],v1_list[0][1]],[v1_list[2][0],v1_list[2][1]],[v1_list[1][0],v1_list[1][1]],[v1_list[3][0],v1_list[3][1]]],0)
     #Lower Face
-    #LOF = pygame.draw.polygon(screen, GREEN, [[v1_list[2][0],v1_list[2][1]],[v2_list[2][0],v2_list[2][1]],[v2_list[1][0],v2_list[1][1]],[v1_list[1][0],v1_list[1][1]]],0)
-    #Right Side Face
-    #RGT = pygame.draw.polygon(screen, PINK, [[v1_list[3][0],v1_list[3][1]],[v2_list[3][0],v2_list[3][1]],[v2_list[1][0],v2_list[1][1]],[v1_list[1][0],v1_list[1][1]]],0)
+    UPF = pygame.draw.polygon(screen, WHITE, [New_Corners[2],New_Corners[3],Corners[3],Corners[2]])
     #Left Side Face
-    #LFT = pygame.draw.polygon(screen, YELLOW, [[v1_list[0][0],v1_list[0][1]],[v2_list[0][0],v2_list[0][1]],[v2_list[2][0],v2_list[2][1]],[v1_list[2][0],v1_list[2][1]]],0)
+    LFT = pygame.draw.polygon(screen, BLUE, [New_Corners[0],New_Corners[2],Corners[2],Corners[0]])
+    #Right Side Face
+    RGT = pygame.draw.polygon(screen, BLUE, [New_Corners[1],New_Corners[3],Corners[3],Corners[1]])
+    #Upper Face
+    UPF = pygame.draw.polygon(screen, WHITE, [New_Corners[0],New_Corners[1],Corners[1],Corners[0]])    
+    #Front Face
+    FRF = pygame.draw.polygon(screen, BROWN, [Corners[0],Corners[1],Corners[3],Corners[2]])
 
 if __name__=='__main__': #Main function
 
