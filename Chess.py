@@ -21,7 +21,7 @@ screen.fill(SKY_BLUE)
 pygame.display.set_caption("Chess")
 
 if __name__=='__main__': #Main function
-    zmax=20 #Max Depth
+    zmax=25 #Max Depth
 
     #Focus creation
     F=[500,100,zmax] #Focus
@@ -36,7 +36,7 @@ if __name__=='__main__': #Main function
     l=100
 
     #Initial Point
-    P_1=[-400,100]
+    P_1=[-400,50]
 
     filled=0
 
@@ -54,16 +54,15 @@ if __name__=='__main__': #Main function
                 sys.exit()
         if z>0:
             while cube_pos<cube_final_pos:
-                All_Corners=Cube(P_1,C,F,zmax,z,l,filled,cube_init,Color)
+                All_Corners=Cube(P_1,C,F,zmax,z,l,filled,cube_init,cube_init_pos,cube_final_pos,cube_pos,Color)
                 if Color==0:
                     Color=1
                 else:
                     Color=0
-                print 'All Corners=',All_Corners
                 if cube_pos==cube_init_pos:
-                    P1=All_Corners[0][0]
-                    P2=All_Corners[0][3]
-                    new_l=abs(All_Corners[0][0][0]-All_Corners[0][3][0])
+                    P1=All_Corners[0][0] #Cube front face Upper left corner
+                    P2=All_Corners[0][3] #Cube front facel lower right corner
+                    new_l=abs(All_Corners[0][0][0]-All_Corners[0][3][0]) #new length according front face size
                     cube_init=0 #I am not at initial position
                 P_1=All_Corners[0][1]
                 cube_pos=cube_pos+1

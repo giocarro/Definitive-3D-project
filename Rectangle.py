@@ -29,9 +29,9 @@ def Rectangle(P1,Size,delta_rect,z,filled):
     l=Size[0]-z*delta_rect[0] #new rectangle length
     w=Size[1]-z*delta_rect[1] #new rectangle width
     if filled==1:
-        pygame.draw.rect(screen,GREEN,(P1[0],P1[1],l,w)) #(x1,y1,length,width)
-    else:
-        pygame.draw.rect(screen,GREEN,(P1[0],P1[1],l,w),1) #(x1,y1,length,width)
+        pygame.draw.rect(screen,BROWN,(P1[0],P1[1],l,w)) #(x1,y1,length,width)
+    #else:
+    #    pygame.draw.rect(screen,BROWN,(P1[0],P1[1],l,w),1) #(x1,y1,length,width)
     New_Size=[l,w]
     return New_Size
 
@@ -65,7 +65,7 @@ if __name__=='__main__': #Main function
     delta_rect=Delta(P_1,P_2,zmax)
 
     #Choosing if the rectangle will be filled
-    filled=0 #If yes: '1', if not '0'
+    filled=1 #If yes: '1', if not '0'
 
     P1=P_1
     
